@@ -14,10 +14,9 @@ penultimate l = last (init l)
 
 -- Find the element at index k in list l
 -- For example: "findK 2 [0,0,1,0,0,0]" returns 1
-findK k l = undefined
-
+findK k l = l !! k
 -- Determine if list l is a palindrome
-isPalindrome l = undefined
+isPalindrome l = l == reverse l
 
 {-
  - Duplicate the elements in list xs, for example "duplicate [1,2,3]" would give the list [1,1,2,2,3,3]
@@ -26,7 +25,7 @@ isPalindrome l = undefined
  -
  - For example: concat [[1,2,3],[3,4,5]] returns [1,2,3,3,4,5]
  -}
-duplicate xs = undefined
+duplicate xs = repeat (concat [xs, xs])
 
 {-
  - Imitate the functinality of zip
@@ -41,7 +40,7 @@ splitAtIndex k l = undefined
 
 -- Drop the element at index k in list l
 -- For example "dropK 3 [0,0,0,1,0,0,0]" returns [0,0,0,0,0,0]
-dropK k l = undefined
+dropK k l = take (length l - k - 1) l ++ take (length (reverse l) - k + 1) l
 
 -- Extract elements between ith and kth element in list l. Including i, but not k
 -- For example, "slice 3 6 [0,0,0,1,2,3,0,0,0]" returns [1,2,3]
